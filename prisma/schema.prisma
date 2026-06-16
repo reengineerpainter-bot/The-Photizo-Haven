@@ -11,6 +11,8 @@ enum UserRole {
   MEMBER
   MANAGER
   ADMIN
+
+  @@map("user_role")
 }
 
 enum GivingCategory {
@@ -19,6 +21,8 @@ enum GivingCategory {
   HAVEN_DUES
   WELFARE
   LOCAL_PARTNERSHIP
+
+  @@map("giving_category")
 }
 
 enum ConsistencyStatus {
@@ -26,6 +30,8 @@ enum ConsistencyStatus {
   CONSISTENT
   LAGGING
   LAPSED
+
+  @@map("consistency_status")
 }
 
 enum AuditAction {
@@ -41,6 +47,8 @@ enum AuditAction {
   REPORT_GENERATED
   MEMBER_CREATED
   ROLE_CHANGED
+
+  @@map("audit_action")
 }
 
 model Group {
