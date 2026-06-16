@@ -1,0 +1,48 @@
+Act as a Senior Full-Stack Developer, Cybersecurity Architect, and UI/UX Designer. Generate a production-ready blueprint, secure database schema, and core code for a modern, futuristic Web and Mobile App (PWA/APK) to track and manage regular group financial givings. 
+
+### 1. Security & Data Protection (Zero-Trust Architecture)
+The application handles sensitive financial tracking and personal data. Implement strict security guardrails against data leakage and malicious hacks:
+- Authentication & Authorization: Implement Multi-Factor Authentication (MFA) and secure JWT (JSON Web Tokens) stored exclusively in HttpOnly, Secure, and SameSite cookies to prevent XSS (Cross-Site Scripting) token theft. 
+- Role-Based Access Control (RBAC): Strictly isolate the Managerial Backend from the Member UI. Ensure API endpoints enforce server-side validation to prevent IDOR (Insecure Direct Object Reference) vulnerabilities—managers can only see their assigned group, and members can only access their own data.
+- Data Encryption: Mandate End-to-End Encryption. All data must be encrypted in transit via TLS 1.3 and at rest using AES-256 (including names, emails, phone numbers, and giving histories).
+- Data Leakage Prevention (DLP): Mask sensitive information on the UI (e.g., partial masking of phone numbers and emails) unless explicitly authorized by an admin view. Implement strict rate-limiting on all API endpoints to prevent brute-force attacks and automated data scraping.
+- Audit Logging: Maintain an immutable, server-side audit log tracking all administrative actions, profile updates, and login attempts.
+
+### 2. Design System & UI/UX
+- Tone: Futuristic, sleek, high-end, and minimalist (similar to premium fintech apps like Revolut, Linear, or Apple Card UI).
+- Visuals: Dark mode optimized with vibrant, glowing neon accents (e.g., electric cyan, emerald green for growth, deep purple backgrounds), smooth micro-interactions, glassmorphism components, and clean typography.
+- Responsiveness: Designed mobile-first for seamless compilation into an Android APK, while scaling beautifully for a desktop management dashboard.
+
+### 3. User Authentication & Onboarding
+Create a secure, validation-heavy signup form collecting:
+- Full Name (Sanitized against SQL Injection/XSS)
+- Phone Number (Validated via regex)
+- Email Address (Sanitized and verified)
+- Date Joined the Group
+- Password (Enforce strict complexity requirements: minimum 12 characters, symbols, numbers, upper/lower case)
+
+### 4. Core Giving Modules (The Tracking System)
+Every member profile must track 5 distinct giving categories. Each category needs a progress bar or visual tracker:
+1. Tithe: Regular percentage-based or fixed monthly contributions.
+2. PCO Seed: Dedicated tracking for specific partnership/faith seeds.
+3. Haven Dues: Structural group dues with fixed intervals.
+4. Welfare: Contributions earmarked for community support and internal charity.
+5. Local Partnership: Funding dedicated to regional projects. Include a dynamic "Project Description" field showing the current real-world project active for that month.
+
+### 5. Admin/Managerial Backend Dashboard
+Build an intuitive, secure admin portal allowing managers to oversee group health:
+- Member Consistency Tracker: A high-level view (like a GitHub contribution graph or color-coded matrix) showing who is consistent, lagging, or outstanding.
+- Interactive Profiles: Managers must be able to click into any member's profile to view their giving history, leave internal comments, or send direct feedback/replies to the member's dashboard.
+- Automated Monthly Reports: A system that generates and compiles a sleek, downloadable visual report of individual and collective progress.
+
+### 6. Smart Notification & Alert System
+Implement a dual-trigger automated pop-up/push notification system:
+- Lapsed Member Alert: Trigger an automatic warning notification for any member who has not logged an update or contribution for over 30 consecutive days.
+- Outstanding Member Alert: Trigger a celebratory, high-converting notification recognizing top-tier, highly consistent, or milestone-reaching members.
+
+### Technical Stack Preferences:
+- Frontend: React (Next.js) or Vue.js with Tailwind CSS for web; React Native or Flutter for the APK.
+- Backend: Node.js (Express) or Firebase with strict Security Rules applied.
+- Database: PostgreSQL (with Row-Level Security enabled) or MongoDB (with encrypted fields).
+
+Please output the initial secure file structure, the secure database schema (with RLS policies or validation rules), and the core backend authentication middleware handling JWT and RBAC.
